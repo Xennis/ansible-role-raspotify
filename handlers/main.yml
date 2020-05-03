@@ -1,6 +1,5 @@
 ---
-- name: restart raspotify
+- name: Restart raspotify
   service:
     name: raspotify
     state: restarted
-  become: True
