@@ -4,19 +4,16 @@
   apt:
     name: apt-transport-https
     state: present
-  become: true
 
 - name: Ensure apt key is present
   apt_key:
     url: https://dtcooper.github.io/raspotify/key.asc
     state: present
-  become: true
 
 - name: Ensure apt repository is present
   apt_repository:
     repo: deb https://dtcooper.github.io/raspotify raspotify main
     state: present
-  become: true
 
 - name: Install raspotify
   apt:
@@ -27,6 +24,5 @@
   template:
     src: "templates/raspotify.j2"
     dest: "/etc/default/raspotify"
-  become: True
   notify:
-   - restart raspotify
+   - Restart raspotify
